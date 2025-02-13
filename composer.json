@@ -1,0 +1,21 @@
+{
+    "name": "oscar-team/axle",
+    "description": "php sdk for axle",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "OscarTeam\\Axle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Adnan Shoukat",
+            "email": "adnansunny821@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "saloonphp/saloon": "^3.10"
+    }
+}
