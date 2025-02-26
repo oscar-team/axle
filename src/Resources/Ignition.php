@@ -8,11 +8,11 @@ use Saloon\Http\Response;
 class Ignition extends BaseResource
 {
     public function startIgnition(
-        string $redirectUri,
         array $user = [],
-        array $metaData = [],
-        ?string $webhookUri = null,
+        ?string $redirectUri,
+        ?string $webhookUri ,
+        ?array $metaData,
     ): Response {
-        return $this->connector->send(new StartIgnition($redirectUri, $user, $metaData, $webhookUri));
+        return $this->connector->send(new StartIgnition($user, $redirectUri, $webhookUri, $metaData));
     }
 }
