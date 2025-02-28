@@ -14,12 +14,11 @@ class StartIgnition extends Request implements HasBody
     protected Method $method = Method::POST;
 
     public function __construct(
-        private readonly string $redirectUri,
         private readonly array $user,
-        private readonly array $metaData,
+        private readonly ?string $redirectUri,
         private readonly ?string $webhookUri,
-    ) {
-    }
+        private readonly ?array $metaData,
+    ) {}
 
     public function resolveEndpoint(): string
     {
@@ -29,10 +28,10 @@ class StartIgnition extends Request implements HasBody
     protected function defaultBody(): array
     {
         return array_filter([
-            'redirectUri' => $this->redirectUri,
             'user' => $this->user,
-            'metadata' => $this->metaData,
+            'redirectUri' => $this->redirectUri,
             'webhookUri' => $this->webhookUri,
+            'metadata' => $this->metaData,
         ]);
     }
 }
