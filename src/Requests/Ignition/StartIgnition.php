@@ -20,6 +20,17 @@ class StartIgnition extends Request implements HasBody
         private readonly ?array $metaData,
     ) {}
 
+    protected function defaultHeaders(): array
+    {
+        if (empty($this->metaData['dest_client_id'])) {
+            return [];
+        }
+
+        return [
+            'x-destination-client-id' => $this->metaData['dest_client_id'],
+        ];
+    }
+
     public function resolveEndpoint(): string
     {
         return "/ignition";
