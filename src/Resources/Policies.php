@@ -9,7 +9,7 @@ use Saloon\Http\Response;
 
 class Policies extends BaseResource
 {
-    public function getPolicy(string $policyId, string $accessToken, array $params = ['expand' => true]): Response
+    public function getPolicy(string $policyId, string $accessToken, array $params = ['expand' => 'true']): Response
     {
         return $this->connector->send(new GetPolicy($policyId, $accessToken, $params));
     }
@@ -18,7 +18,7 @@ class Policies extends BaseResource
         string $policyId,
         string $accessToken,
         array $params = [
-            'expand' => true,
+            'expand' => 'true',
             'mode' => 'url',
             'format' => 'pdf',
         ]

@@ -12,7 +12,7 @@ class GetPolicy extends Request
     public function __construct(
         private readonly string $policyId,
         private readonly string $accessToken,
-        private readonly array $params = ['expand' => true],
+        private readonly array $params,
     ) {
     }
 
