@@ -18,7 +18,8 @@ class StartIgnition extends Request implements HasBody
         private readonly ?string $redirectUri,
         private readonly ?string $webhookUri,
         private readonly ?array $metaData,
-    ) {}
+    ) {
+    }
 
     protected function defaultHeaders(): array
     {
@@ -26,9 +27,7 @@ class StartIgnition extends Request implements HasBody
             return [];
         }
 
-        return [
-            'x-destination-client-id' => $this->metaData['dest_client_id'],
-        ];
+        return ['x-destination-client-id' => $this->metaData['dest_client_id']];
     }
 
     public function resolveEndpoint(): string

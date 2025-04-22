@@ -22,7 +22,7 @@ class DescopeToken extends Request implements HasBody
         return "/token/descope";
     }
 
-    public function headers(): array
+    public function defaultHeaders(): array
     {
         return ['x-access-token' => $this->accessToken];
     }

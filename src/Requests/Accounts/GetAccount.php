@@ -21,7 +21,7 @@ class GetAccount extends Request
         return "/accounts/$this->accountId";
     }
 
-    public function headers(): array
+    public function defaultHeaders(): array
     {
         return ['x-access-token' => $this->accessToken];
     }

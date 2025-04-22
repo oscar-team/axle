@@ -21,7 +21,7 @@ class GetPolicy extends Request
         return "/policies/$this->policyId";
     }
 
-    public function headers(): array
+    public function defaultHeaders(): array
     {
         return ['x-access-token' => $this->accessToken];
     }

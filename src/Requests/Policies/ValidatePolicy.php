@@ -25,7 +25,7 @@ class ValidatePolicy extends Request implements HasBody
         return "/policies/$this->policyId/valid";
     }
 
-    public function headers(): array
+    public function defaultHeaders(): array
     {
         return ['x-access-token' => $this->accessToken];
     }
