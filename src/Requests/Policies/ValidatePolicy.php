@@ -22,7 +22,7 @@ class ValidatePolicy extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return "/policies/$this->policyId/valid";
+        return "/policies/$this->policyId/validate";
     }
 
     public function defaultHeaders(): array
