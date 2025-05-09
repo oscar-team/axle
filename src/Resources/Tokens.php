@@ -8,13 +8,13 @@ use Saloon\Http\Response;
 
 class Tokens extends BaseResource
 {
-    public function exchangeToken(string $autCode): Response
+    public function exchangeToken(string $autCode, ?string $destClientId = null): Response
     {
-        return $this->connector->send(new ExchangeToken($autCode));
+        return $this->connector->send(new ExchangeToken($autCode, $destClientId));
     }
 
-    public function descopeToken(string $accessToken): Response
+    public function descopeToken(string $accessToken, ?string $destClientId = null): Response
     {
-        return $this->connector->send(new DescopeToken($accessToken));
+        return $this->connector->send(new DescopeToken($accessToken, $destClientId));
     }
 }

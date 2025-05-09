@@ -13,8 +13,10 @@ class DescopeToken extends Request implements HasBody
 
     protected Method $method = Method::POST;
 
-    public function __construct(private readonly string $accessToken)
-    {
+    public function __construct(
+        private readonly string $accessToken,
+        private readonly ?string $destClientId,
+    ) {
     }
 
     public function resolveEndpoint(): string
@@ -24,7 +26,10 @@ class DescopeToken extends Request implements HasBody
 
     public function defaultHeaders(): array
     {
-        return ['x-access-token' => $this->accessToken];
+        return array_filter([
+            'x-access-token' => $this->accessToken,
+            'x-destination-client-id' => $this->destClientId
+        ]);
     }
 
     protected function defaultBody(): array

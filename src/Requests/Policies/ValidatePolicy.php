@@ -17,6 +17,7 @@ class ValidatePolicy extends Request implements HasBody
         private readonly string $policyId,
         private readonly string $accessToken,
         private readonly array $rules,
+        private readonly ?string $destClientId,
     ) {
     }
 
@@ -27,7 +28,10 @@ class ValidatePolicy extends Request implements HasBody
 
     public function defaultHeaders(): array
     {
-        return ['x-access-token' => $this->accessToken];
+        return array_filter([
+            'x-access-token' => $this->accessToken,
+            'x-destination-client-id' => $this->destClientId
+        ]);
     }
 
     protected function defaultBody(): array

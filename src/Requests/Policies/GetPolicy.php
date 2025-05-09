@@ -12,6 +12,7 @@ class GetPolicy extends Request
     public function __construct(
         private readonly string $policyId,
         private readonly string $accessToken,
+        private readonly ?string $destClientId,
         private readonly array $params,
     ) {
     }
@@ -23,7 +24,10 @@ class GetPolicy extends Request
 
     public function defaultHeaders(): array
     {
-        return ['x-access-token' => $this->accessToken];
+        return array_filter([
+            'x-access-token' => $this->accessToken,
+            'x-destination-client-id' => $this->destClientId
+        ]);
     }
 
     protected function defaultQuery(): array
